@@ -1,0 +1,20 @@
+name: atlas
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  # Python version
+  - python=3.11
+  # Hugging Face libraries and pytorch
+  - pip
+  - pip:
+      - torch==2.6.0+cu118
+      - torchvision==0.21.0+cu118
+      - --extra-index-url https://download.pytorch.org/whl/cu118
+      - transformers==4.55.3
+      - safetensors==0.5.3
+      - pandas
+      - matplotlib
+      - jupyterlab
+      - pre-commit==4.2.0
+      - types-PyYAML==6.0.12.20250809
