@@ -14,7 +14,7 @@
     <a href="#introduction">Introduction</a> •
     <a href="#setup">Setup</a> •
     <a href="#quick-start">Quick Start</a> •
-    <a href="#results">Demo</a>
+    <a href="#results">Results</a>
   </p>
 </div>
 
