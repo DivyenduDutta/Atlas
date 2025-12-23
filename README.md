@@ -57,4 +57,4 @@ The scope right now (ie, initially) would be to perform note summarization and a
 
 Initial high level architecture diagram (subject to change)
 
-<img src="Resouces/Atlas_Architecture.png" alt="architecture">
+<img src="https://github.com/DivyenduDutta/Atlas/tree/master/Resources" alt="architecture">
