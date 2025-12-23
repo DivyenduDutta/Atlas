@@ -91,6 +91,9 @@
         <mxCell id="TXnst_0s-ZQ6Iyvg5Zda-34" parent="1" style="shape=callout;whiteSpace=wrap;html=1;perimeter=calloutPerimeter;base=71;size=35;position=0.33;position2=0.8;" value="This is done via an LLM" vertex="1">
           <mxGeometry height="80" width="150" x="-260" y="355" as="geometry" />
         </mxCell>
+        <mxCell id="ylUvblSnaKISxEn222B1-1" parent="1" style="shape=callout;whiteSpace=wrap;html=1;perimeter=calloutPerimeter;" value="Saved in a Vector DB" vertex="1">
+          <mxGeometry height="80" width="120" x="420" y="355" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
