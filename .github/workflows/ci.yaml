@@ -35,7 +35,7 @@ jobs:
         shell: bash -l {0}
         run: |
           conda activate atlas
-          pytest -m runonci --cov=atlas --cov-branch --cov-report=xml
+          pytest -m runonci --cov=atlas --cov-branch --cov-report=term --cov-report=xml
 
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v5
