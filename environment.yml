@@ -11,8 +11,8 @@ dependencies:
       - torch==2.6.0+cu118
       - torchvision==0.21.0+cu118
       - --extra-index-url https://download.pytorch.org/whl/cu118
-      - transformers==4.55.3
-      - safetensors==0.5.3
+      - transformers
+      - accelerate
       - pandas
       - matplotlib
       - jupyterlab
