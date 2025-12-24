@@ -47,11 +47,21 @@ RAG is good because:
 
 #### Problem Statement and Motivation
 
-Imaging you're like me and spend a lot of time taking notes about various things in your life. I mean everything. Cooking, learning, grocery shopping, books read etc. I do that but increasingly realized that I dont quite often go back and utilize the knowledge in those notes. This is precisely because the knowledge is scattered and not structured. But with the rise of capable tiny LLMs, this knowledge generation can be offloaded to them.
+Imagine you're like me and spend a lot of time taking notes about various things in your life. I mean everything. Cooking, learning, grocery shopping, books read etc. I do that but increasingly realized that I dont quite often go back and utilize the knowledge in those notes. This is precisely because the knowledge is scattered and not structured. But with the help of a RAG based knowledge copilot, this knowledge generation can be offloaded to them and then we can interact with our knowledge base using natural language via an LLM.
 
 So this repo is a RAG based knowledge copilot that operates on an Obsidian vault. So basically if you have a bunch of notes, you now have a natural language powered AI assistant who can answer your questions based off your notes.
 
 The scope right now (ie, initially) would be to perform note summarization and answer questions based on note(s) reasoning.
+
+#### LLM Choice
+
+[TinyLlama](https://github.com/jzhang38/TinyLlama) was decided to be used. Its an interesting model because
+- its pretrained from scratch
+- has a tiny parameter budget (1.1 B) and hence its lightweight enough for our purposes
+- pretrained on a massive dataset (3T tokens)
+- we use the [chat model](https://huggingface.co/TinyLlama/TinyLlama-1.1B-Chat-v1.0)
+
+So it follows the scaling law that even a small LLM when trained on enough quality data leads to competetive performance.
 
 ## Architecture
 
