@@ -30,3 +30,9 @@ jobs:
         run: |
           conda activate atlas
           pre-commit run --all-files --show-diff-on-failure
+
+      - name: Run tests
+        shell: bash -l {0}
+        run: |
+          conda activate atlas
+          pytest -m runonci
