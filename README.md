@@ -10,6 +10,9 @@
     <a href="https://github.com/ambv/black"><img src="https://img.shields.io/badge/code%20style-black-000000.svg" alt="Black"></a>
   </p>
 
+![CI](https://github.com/DivyenduDutta/Atlas/actions/workflows/ci.yaml/badge.svg)
+![Coverage](https://codecov.io/gh/DivyenduDutta/Atlas/branch/main/graph/badge.svg)
+
   <p>
     <a href="#introduction">Introduction</a> •
     <a href="#architecture">Architecture</a> •
