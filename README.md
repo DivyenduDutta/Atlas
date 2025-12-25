@@ -11,7 +11,7 @@
   </p>
 
 ![CI](https://github.com/DivyenduDutta/Atlas/actions/workflows/ci.yaml/badge.svg)
-[![codecov](https://codecov.io/gh/DivyenduDutta/Atlas/branch/feature/master/graph/badge.svg)](https://codecov.io/gh/DivyenduDutta/Atlas)
+[![codecov](https://codecov.io/gh/DivyenduDutta/Atlas/branch/master/graph/badge.svg)](https://codecov.io/gh/DivyenduDutta/Atlas)
 
   <p>
     <a href="#introduction">Introduction</a> •
