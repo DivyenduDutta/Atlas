@@ -212,3 +212,6 @@ VS Code
 
 # Logging
 logs/
+
+# Resources not needed to checkin
+Resources/*.json
