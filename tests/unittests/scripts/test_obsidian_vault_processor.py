@@ -564,9 +564,9 @@ def test_parse_markdown_note(
         note_file, dummy_obsidian_vault_path
     )
     expected_data = {
-        "note_id": "_learning about me\\what I learnt about myself when dealing with ADHD.md",
+        "note_id": "_learning about me/what I learnt about myself when dealing with ADHD.md",
         "title": "what I learnt about myself when dealing with ADHD",
-        "relative_path": "_learning about me\\what I learnt about myself when dealing with ADHD.md",
+        "relative_path": "_learning about me/what I learnt about myself when dealing with ADHD.md",
         "raw_text": "# What I learnt about #myself when dealing [[wikilink|custom name]] with ADHD\n\nSome #content here.\n",
         "frontmatter": {"tags": ["personal", "health"], "date": "2023-10-01"},
         "headings": [
@@ -655,7 +655,7 @@ def test_process(dummy_obsidian_vault_path: Path, dummy_output_path: Path) -> No
     note_data = processed_data[0]
     assert (
         note_data["note_id"]
-        == "_learning about me\\what I learnt about myself when dealing with ADHD.md"
+        == "_learning about me/what I learnt about myself when dealing with ADHD.md"
     ), "Note ID should be correct."
     assert (
         note_data["title"] == "what I learnt about myself when dealing with ADHD"
