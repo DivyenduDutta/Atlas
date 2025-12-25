@@ -18,3 +18,5 @@ dependencies:
       - jupyterlab
       - pre-commit==4.2.0
       - types-PyYAML==6.0.12.20250809
+      - pytest==8.3.5
+      - pytest-cov==6.2.0

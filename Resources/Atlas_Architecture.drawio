@@ -10,7 +10,7 @@
         <mxCell id="TXnst_0s-ZQ6Iyvg5Zda-1" parent="1" style="whiteSpace=wrap;html=1;aspect=fixed;" value="" vertex="1">
           <mxGeometry height="130" width="130" x="80" y="160" as="geometry" />
         </mxCell>
-        <mxCell id="TXnst_0s-ZQ6Iyvg5Zda-2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Obsidian Markdown Processor" vertex="1">
+        <mxCell id="TXnst_0s-ZQ6Iyvg5Zda-2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Obsidian Vault&amp;nbsp;&lt;div&gt;Processor&lt;/div&gt;" vertex="1">
           <mxGeometry height="60" width="100" x="90" y="195" as="geometry" />
         </mxCell>
         <mxCell id="TXnst_0s-ZQ6Iyvg5Zda-5" edge="1" parent="1" source="TXnst_0s-ZQ6Iyvg5Zda-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="TXnst_0s-ZQ6Iyvg5Zda-1">

@@ -209,3 +209,9 @@ __marimo__/
 VS Code
 .vscode/
 *.code-workspace
+
+# Logging
+logs/
+
+# Resources not needed to checkin
+Resources/*.json

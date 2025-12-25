@@ -10,6 +10,9 @@
     <a href="https://github.com/ambv/black"><img src="https://img.shields.io/badge/code%20style-black-000000.svg" alt="Black"></a>
   </p>
 
+![CI](https://github.com/DivyenduDutta/Atlas/actions/workflows/ci.yaml/badge.svg)
+[![codecov](https://codecov.io/gh/DivyenduDutta/Atlas/branch/feature/master/graph/badge.svg)](https://codecov.io/gh/DivyenduDutta/Atlas)
+
   <p>
     <a href="#introduction">Introduction</a> •
     <a href="#architecture">Architecture</a> •
@@ -44,6 +47,10 @@ RAG is good because:
 #### Obsidian
 
 [Obsidian](https://obsidian.md/) is a light weight application used to take notes and create knowledge bases. It saves all the notes as markdown making it easy to load, process and render a huge amount of notes.
+
+- **Obsidian Frontmatter**
+  - Obsidian Frontmatter (YAML) is metadata at the top of a note, enclosed in ---, used for organizing data like aliases, tags, type, status, and links, enabling powerful filtering, display, and automation with core features.
+  - It provides key-value pairs for structured data, improving note management.
 
 #### Problem Statement and Motivation
 
