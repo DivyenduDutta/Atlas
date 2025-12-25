@@ -198,9 +198,9 @@ class ObsidianVaultProcessor(KnowledgeBaseProcessor):
         frontmatter, body = self._extract_frontmatter(text)
 
         return {
-            "note_id": str(note_path.relative_to(vault_path)),
+            "note_id": note_path.relative_to(vault_path).as_posix(),
             "title": note_path.stem,
-            "relative_path": str(note_path.relative_to(vault_path)),
+            "relative_path": note_path.relative_to(vault_path).as_posix(),
             "raw_text": body,
             "frontmatter": frontmatter,
             "headings": self._extract_headings(body),
@@ -212,6 +212,7 @@ class ObsidianVaultProcessor(KnowledgeBaseProcessor):
     def save_processed_data(self, processed_data: List[Dict]) -> None:
         """
         Save the extracted notes metadata to a JSON file.
+        Replaces any existing file at the output path.
 
         Args:
             notes (list[dict]): The list of parsed notes metadata.
