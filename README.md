@@ -48,6 +48,10 @@ RAG is good because:
 
 [Obsidian](https://obsidian.md/) is a light weight application used to take notes and create knowledge bases. It saves all the notes as markdown making it easy to load, process and render a huge amount of notes.
 
+- **Obsidian Frontmatter**
+  - Obsidian Frontmatter (YAML) is metadata at the top of a note, enclosed in ---, used for organizing data like aliases, tags, type, status, and links, enabling powerful filtering, display, and automation with core features.
+  - It provides key-value pairs for structured data, improving note management.
+
 #### Problem Statement and Motivation
 
 Imagine you're like me and spend a lot of time taking notes about various things in your life. I mean everything. Cooking, learning, grocery shopping, books read etc. I do that but increasingly realized that I dont quite often go back and utilize the knowledge in those notes. This is precisely because the knowledge is scattered and not structured. But with the help of a RAG based knowledge copilot, this knowledge generation can be offloaded to them and then we can interact with our knowledge base using natural language via an LLM.
