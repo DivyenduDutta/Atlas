@@ -3,7 +3,7 @@
 <div align="center">
   <img src="atlas_icon.png" alt="atlas" width="575" height="337">
 
-  <p><em>Atlas is a RAG-based knowledge copilot for Obsidian markdown vaults. It performs semantic chunking, vector search, and grounded LLM responses with citation to original notes.</em></p>
+  <p><em>Atlas is a RAG-based knowledge copilot for Obsidian markdown vaults. It performs chunking, vector search, and grounded LLM responses with citation to original notes.</em></p>
 
   <p>
     <a href="https://github.com/DivyenduDutta/Atlas/blob/master/LICENSE"><img src="https://img.shields.io/github/license/DivyenduDutta/Atlas?style=flat-square" alt="License"></a>
@@ -43,6 +43,10 @@ RAG is good because:
 - Enables citations
 
 - Keeps answers faithful to source material
+
+#### Chunking
+
+[[atlas/core/chunker/Chunker Module|Chunker Module]]
 
 #### Obsidian
 
