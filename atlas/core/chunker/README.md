@@ -34,3 +34,32 @@ Chunk along:
 - sections
 - paragraphs
 - author-defined boundaries
+
+Overall chunk schema,
+
+```json
+[
+  { chunk 1 },
+  { chunk 2 },
+  { chunk 3 }
+]
+```
+
+Individual chunk schema ie, `chunk 1` is as below,
+
+```json
+{
+  "chunk_id": "folder/sample note.md::Heading 1::0",
+  "note_id": "folder/sample note.md",
+  "title": "sample note",
+  "relative_path": "folder/sample note.md",
+  "heading": "Heading 1",
+  "chunk_index": 0,
+  "text": "Actual chunk text here...",
+  "tags": ["tag1", "tag2"],
+  "frontmatter": {"tags": ["personal", "health"], "date": "2023-10-01"},
+  "word_count": 214
+}
+```
+
+When deciding to split a note into chunks, word based splitting is used. So word = token here.
