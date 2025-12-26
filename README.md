@@ -46,7 +46,7 @@ RAG is good because:
 
 #### Chunking
 
-[[atlas/core/chunker/Chunker Module|Chunker Module]]
+[Chunker Module](atlas/core/chunker/README.md)
 
 #### Obsidian
 
