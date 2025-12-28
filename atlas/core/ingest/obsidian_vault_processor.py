@@ -13,6 +13,13 @@ LOGGER = LoggerConfig().logger
 
 
 class ObsidianVaultProcessor(KnowledgeBaseProcessor):
+    """
+    Processor for Obsidian Vaults to extract notes metadata.
+
+    Args:
+        vault_path (str): Path to the Obsidian vault.
+        output_path (str): Path to save the processed data (obsidian indexed data).
+    """
 
     _OBSIDIAN_CONFIG_FILES = {
         "app.json",
@@ -21,6 +28,7 @@ class ObsidianVaultProcessor(KnowledgeBaseProcessor):
     }
 
     def __init__(self, vault_path: str, output_path: str) -> None:
+        LOGGER.info("-" * 20)
         LOGGER.info("ObsidianVaultProcessor initialized.")
         LOGGER.info(f"Obsidian Vault to be processed: {vault_path}")
         self.vault_path = Path(vault_path)
@@ -211,15 +219,18 @@ class ObsidianVaultProcessor(KnowledgeBaseProcessor):
 
     def save_processed_data(self, processed_data: List[Dict]) -> None:
         """
-        Save the extracted notes metadata to a JSON file.
-        Replaces any existing file at the output path.
+        Save the processed data to a JSON file atomically.
+        This ensures that the file is either fully written or not written at all.
 
         Args:
-            notes (list[dict]): The list of parsed notes metadata.
+            processed_data (list[dict]): The list of parsed notes metadata.
         """
+        tmp_path = self.output_path.with_suffix(".tmp")
 
-        with self.output_path.open("w", encoding="utf-8") as f:
+        with tmp_path.open("w", encoding="utf-8") as f:
             json.dump(processed_data, f, indent=2, ensure_ascii=False)
+
+        tmp_path.replace(self.output_path)
 
     def process(self) -> list[dict]:
         """
