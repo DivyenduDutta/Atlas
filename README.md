@@ -3,7 +3,7 @@
 <div align="center">
   <img src="atlas_icon.png" alt="atlas" width="575" height="337">
 
-  <p><em>Atlas is a RAG-based knowledge copilot for Obsidian markdown vaults. It performs semantic chunking, vector search, and grounded LLM responses with citation to original notes.</em></p>
+  <p><em>Atlas is a RAG-based knowledge copilot for Obsidian markdown vaults. It performs chunking, vector search, and grounded LLM responses with citation to original notes.</em></p>
 
   <p>
     <a href="https://github.com/DivyenduDutta/Atlas/blob/master/LICENSE"><img src="https://img.shields.io/github/license/DivyenduDutta/Atlas?style=flat-square" alt="License"></a>
@@ -44,6 +44,10 @@ RAG is good because:
 
 - Keeps answers faithful to source material
 
+#### Chunking
+
+[Chunker Module](atlas/core/chunker/README.md)
+
 #### Obsidian
 
 [Obsidian](https://obsidian.md/) is a light weight application used to take notes and create knowledge bases. It saves all the notes as markdown making it easy to load, process and render a huge amount of notes.
@@ -72,4 +76,54 @@ So it follows the scaling law that even a small LLM when trained on enough quali
 
 ## Architecture
 
-Initial high level [architecture diagram](https://github.com/DivyenduDutta/Atlas/tree/master/Resources/Atlas_Architecture.png) (subject to change)
+Initial high level [architecture diagram](https://github.com/DivyenduDutta/Atlas/tree/master/Resources/Atlas_Architecture.png)
+
+A sample of the `obsidian_index.json` is as below:
+
+```json
+[
+  {
+    "note_id": "folder/sample note.md",
+    "title": "sample note",
+    "relative_path": "folder/sample note.md",
+    "raw_text": "note body. Lorem Ipsum",
+    "frontmatter": {"tags": ["personal", "health"], "date": "2023-10-01"},
+    "headings": ["Heading 1", "Heading 2"],
+    "tags": ["tag1", "tag2"],
+    "wikilinks": ["wikilink|custom name"],
+    "word_count": 127
+  },
+...
+]
+```
+Its a list of dictionaries, where each dictionary represents one note from the obsidian vault.
+
+## Setup
+
+Add the project root ie, Folder containing this README to PYTHONPATH whichever way you want. One way would be to create a .env and write the following in it
+```
+PYTHONPATH=\full\path\to\projectroot
+```
+And place this .env file in the project root. Works for VS Code.
+
+Another option would be to run `$env:PYTHONPATH = \full\path\to\projectroot` in powershell to set the env variable and then run the scripts.
+
+Install pytorch, torchvision via `pip install torch==2.6.0 torchvision==0.21.0 --index-url https://download.pytorch.org/whl/cu118` - Conda doesnt install GPU version on Windows.
+
+### Sanity
+
+Before committing changes run `pre-commit run --all-files` or `pre-commit run --file <file1>, <file2> ...`
+
+## Quick Start
+
+### Obsidian Vault Processor Module
+
+Run `python .\atlas\core\ingest\obsidian_vault_processor.py`
+
+This will generate the `obsidian_index.json` in `/Resources` folder. This json file contains the processed data after ingesting and processing the notes from the obsidian vault.
+
+See architecture section for structure of this json.
+
+### Tests
+
+Run unit tests via VS Code or `python -m unittest` to run all unit tests

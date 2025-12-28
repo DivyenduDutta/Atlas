@@ -9,6 +9,10 @@ LOGGER = LoggerConfig().logger
 
 
 class KnowledgeBaseProcessor(ABC):
+    """
+    Abstract base class for processors that handle knowledge base files.
+    """
+
     @abstractmethod
     def precheck(self) -> bool:
         """

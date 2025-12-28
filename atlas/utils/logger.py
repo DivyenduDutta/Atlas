@@ -7,16 +7,14 @@ from atlas.utils.singleton import SingletonMeta
 
 
 class LoggerConfig(metaclass=SingletonMeta):
-    """Singleton class for configuring and managing a logger."""
+    """
+    Singleton class for configuring and managing a logger.
+
+    Args:
+        name (str): The name of the logger. Default is "atlas".
+    """
 
     def __init__(self, name: Optional[str] = "atlas"):
-        """
-        Initializes the logger configuration.
-
-        Args:
-            name (str): The name of the logger. Default is "atlas".
-        """
-
         self.logger_name = name
         self.log_dir = os.path.join(
             os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "logs"
