@@ -63,3 +63,20 @@ Individual chunk schema ie, `chunk 1` is as below,
 ```
 
 When deciding to split a note into chunks, word based splitting is used. So word = token here.
+
+#### Chunking Strategy
+
+```bash
+IF word_count <= MAX_WORDS:
+    → single chunk (whole note)
+
+ELIF headings exist:
+    → split by headings
+    → IF any section > MAX_WORDS:
+        → split that section further by size
+
+ELSE (no headings):
+    → split note by size
+```
+
+Note that splitting by size isnt the best option because it will almost surely cut off sentences randomly, thereby loosing context. Solving this might require more complicated heuristics or utilize yet another LLM to do semantic chunking.
