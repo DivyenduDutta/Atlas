@@ -48,6 +48,10 @@ RAG is good because:
 
 [Chunker Module](atlas/core/chunker/README.md)
 
+#### Embedding and Indexing
+
+[Embedding Module](atlas/core/embedder/README.md)
+
 #### Obsidian
 
 [Obsidian](https://obsidian.md/) is a light weight application used to take notes and create knowledge bases. It saves all the notes as markdown making it easy to load, process and render a huge amount of notes.
@@ -123,6 +127,34 @@ Run `python .\atlas\core\ingest\obsidian_vault_processor.py`
 This will generate the `obsidian_index.json` in `/Resources` folder. This json file contains the processed data after ingesting and processing the notes from the obsidian vault.
 
 See architecture section for structure of this json.
+
+### Structural Chunker Module
+
+Run `python .\atlas\core\chunker\structural_chunker.py`
+
+This will generate the `chunked_data.json` in `/Resources` folder. This json file contains the chunks generated from the notes processed by the "Obsidian Vault Processor" module.
+
+See `README` in `atlas/core/chunker` for structure of this json.
+
+There is an option to set the `max_words` for `StructuralChunker`. This determines the size of chunks created and should be changed primarily based on the token limit of the encoding model and context size of the LLM used in later modules.
+
+### Embedding
+
+Run `python .\atlas\core\embedder\sentence_transformer\impl_embedder.py`
+
+This will generate the `embedded_chunks.json` in `/Resources` folder. This json is exactly similar to
+`chunked_data.json` with the added `embedding` for each chunk.
+
+See `README` in `atlas/core/embedder` for structure of this json.
+
+See `altas/core/configs/sentence_transformer_config.yaml` for changing the encoder model used and its configuration. The following can be changed:
+
+```yaml
+model_name: sentence-transformers/all-MiniLM-L6-v2
+batch_size: 32
+normalize_embeddings: true
+device: cuda
+```
 
 ### Tests
 
