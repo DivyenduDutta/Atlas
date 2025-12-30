@@ -1,6 +1,6 @@
 from datetime import date
 from atlas.utils.logger import LoggerConfig
-from atlas.core.ingest.base_file_processor import KnowledgeBaseProcessor
+from atlas.core.ingester.base_file_processor import KnowledgeBaseProcessor
 
 from pathlib import Path
 from datetime import date, datetime
@@ -13,13 +13,7 @@ LOGGER = LoggerConfig().logger
 
 
 class ObsidianVaultProcessor(KnowledgeBaseProcessor):
-    """
-    Processor for Obsidian Vaults to extract notes metadata.
-
-    Args:
-        vault_path (str): Path to the Obsidian vault.
-        output_path (str): Path to save the processed data (obsidian indexed data).
-    """
+    """Processor for Obsidian Vaults to extract notes metadata."""
 
     _OBSIDIAN_CONFIG_FILES = {
         "app.json",
@@ -28,11 +22,10 @@ class ObsidianVaultProcessor(KnowledgeBaseProcessor):
     }
 
     def __init__(self, vault_path: str, output_path: str) -> None:
+        super().__init__(vault_path, output_path)
         LOGGER.info("-" * 20)
         LOGGER.info("ObsidianVaultProcessor initialized.")
         LOGGER.info(f"Obsidian Vault to be processed: {vault_path}")
-        self.vault_path = Path(vault_path)
-        self.output_path = Path(output_path)
 
     def _find_vault_root(self) -> Path | None:
         """
@@ -102,6 +95,12 @@ class ObsidianVaultProcessor(KnowledgeBaseProcessor):
         return is_valid_obsidian_vault
 
     def _normalize_yaml(self, obj):
+        """
+        Recursively normalize YAML data by converting date and datetime objects to ISO format strings.
+
+        Args:
+            obj: The YAML data to normalize.
+        """
         if isinstance(obj, dict):
             return {k: self._normalize_yaml(v) for k, v in obj.items()}
         elif isinstance(obj, list):
@@ -216,21 +215,6 @@ class ObsidianVaultProcessor(KnowledgeBaseProcessor):
             "wikilinks": self._extract_wikilinks(body),
             "word_count": len(body.split()),
         }
-
-    def save_processed_data(self, processed_data: List[Dict]) -> None:
-        """
-        Save the processed data to a JSON file atomically.
-        This ensures that the file is either fully written or not written at all.
-
-        Args:
-            processed_data (list[dict]): The list of parsed notes metadata.
-        """
-        tmp_path = self.output_path.with_suffix(".tmp")
-
-        with tmp_path.open("w", encoding="utf-8") as f:
-            json.dump(processed_data, f, indent=2, ensure_ascii=False)
-
-        tmp_path.replace(self.output_path)
 
     def process(self) -> list[dict]:
         """
