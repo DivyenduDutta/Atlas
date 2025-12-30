@@ -3,7 +3,7 @@ import pytest
 import json
 from pathlib import Path
 
-from atlas.core.ingest.obsidian_vault_processor import ObsidianVaultProcessor
+from atlas.core.ingester.obsidian_vault_processor import ObsidianVaultProcessor
 
 
 @pytest.fixture
