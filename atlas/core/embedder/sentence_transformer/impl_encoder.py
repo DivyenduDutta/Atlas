@@ -1,5 +1,6 @@
 from sentence_transformers import SentenceTransformer
 import numpy as np
+import torch
 
 from atlas.core.embedder.base.base_encoder import BaseEncoder
 from atlas.core.embedder.config import EncoderConfig
@@ -30,9 +31,10 @@ class SentenceTransformerEncoder(BaseEncoder):
         if self.model is not None:
             return
 
-        self.model = SentenceTransformer(
-            self.config.model_name, device=self.config.device
-        )
+        if self.config.device == "cuda":
+            device = "cuda" if torch.cuda.is_available() else "cpu"
+
+        self.model = SentenceTransformer(self.config.model_name, device=device)
         LOGGER.info(f"Loaded Sentence Transformer model: {self.config.model_name}")
 
     def encode(self, texts: List[str]) -> np.ndarray:
