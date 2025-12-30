@@ -24,30 +24,8 @@ class StructuralChunker(BaseChunker):
     def __init__(
         self, processed_data_path: str, output_path: str, max_words: int
     ) -> None:
-        LOGGER.info("-" * 20)
-        LOGGER.info("StructuralChunker initialized.")
-        LOGGER.info(f"Chunking processed data at {processed_data_path}")
-        self.processed_data_path = Path(processed_data_path)
-        self.output_path = Path(output_path)
+        super().__init__(processed_data_path, output_path)
         self.max_words = max_words
-
-    def read_processed_data(self) -> List[Dict] | None:
-        """
-        Read the obsidian indexed data which is the output of the previous module
-        ie, `ObsidianVaultProcessor`.
-
-        Returns:
-            List[Dict] | None: The obsidian indexed data as a list of dictionaries or None if an error occurs.
-        """
-
-        try:
-            with open(self.processed_data_path, "r", encoding="utf-8") as file:
-                data = json.load(file)
-            LOGGER.info("Obsidian indexed data successfully read.")
-            return data
-        except Exception as e:
-            LOGGER.error(f"Error reading processed data: {e}")
-            return None
 
     def _split_by_word_limit(self, text: str, max_words: int) -> list[str]:
         """
@@ -212,22 +190,6 @@ class StructuralChunker(BaseChunker):
                 )
 
         return chunks
-
-    def save_chunked_data(self, chunked_data: List[Dict]) -> None:
-        """
-        Save the chunked data to the output path in JSON format.
-        This method writes to a temporary file first and then renames it to ensure atomicity.
-        This prevents data corruption in case of interruptions during the write process.
-
-        Args:
-            chunked_data (List[Dict]): The chunked data to be saved.
-        """
-        tmp_path = self.output_path.with_suffix(".tmp")
-
-        with tmp_path.open("w", encoding="utf-8") as f:
-            json.dump(chunked_data, f, indent=2, ensure_ascii=False)
-
-        tmp_path.replace(self.output_path)
 
 
 if __name__ == "__main__":
