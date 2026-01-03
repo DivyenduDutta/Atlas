@@ -215,3 +215,4 @@ logs/
 
 # Resources not needed to checkin
 Resources/*.json
+Resources/*.faiss

@@ -80,8 +80,16 @@
         <mxCell id="TXnst_0s-ZQ6Iyvg5Zda-28" edge="1" parent="1" source="TXnst_0s-ZQ6Iyvg5Zda-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="TXnst_0s-ZQ6Iyvg5Zda-25">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="TXnst_0s-ZQ6Iyvg5Zda-27" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=LightGreen;align=center;verticalAlign=middle;rounded=0;" value="Prompt" vertex="1">
-          <mxGeometry height="60" width="100" x="-75" y="310" as="geometry" />
+        <mxCell id="bvvUrWFopLgPZ60e--PS-1" edge="1" parent="1" source="TXnst_0s-ZQ6Iyvg5Zda-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="TXnst_0s-ZQ6Iyvg5Zda-20" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="110" y="380" />
+              <mxPoint x="295" y="380" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TXnst_0s-ZQ6Iyvg5Zda-27" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=LightGreen;align=center;verticalAlign=middle;rounded=0;" value="Prompt/Query" vertex="1">
+          <mxGeometry height="40" width="100" x="60" y="320" as="geometry" />
         </mxCell>
         <mxCell id="TXnst_0s-ZQ6Iyvg5Zda-31" edge="1" parent="1" source="TXnst_0s-ZQ6Iyvg5Zda-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="TXnst_0s-ZQ6Iyvg5Zda-25">
           <mxGeometry relative="1" as="geometry" />
@@ -95,7 +103,7 @@
         <mxCell id="TXnst_0s-ZQ6Iyvg5Zda-34" parent="1" style="shape=callout;whiteSpace=wrap;html=1;perimeter=calloutPerimeter;base=71;size=35;position=0.33;position2=0.8;" value="This is done via an LLM" vertex="1">
           <mxGeometry height="80" width="150" x="-260" y="355" as="geometry" />
         </mxCell>
-        <mxCell id="ylUvblSnaKISxEn222B1-1" parent="1" style="shape=callout;whiteSpace=wrap;html=1;perimeter=calloutPerimeter;" value="Saved in a Vector DB" vertex="1">
+        <mxCell id="ylUvblSnaKISxEn222B1-1" parent="1" style="shape=callout;whiteSpace=wrap;html=1;perimeter=calloutPerimeter;" value="Saved in a Vector Index" vertex="1">
           <mxGeometry height="80" width="120" x="420" y="355" as="geometry" />
         </mxCell>
       </root>

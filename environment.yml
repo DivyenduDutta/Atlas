@@ -5,6 +5,8 @@ channels:
 dependencies:
   # Python version
   - python=3.11
+  - faiss-gpu
+  - numpy
   # Hugging Face libraries and pytorch
   - pip
   - pip:
@@ -20,3 +22,4 @@ dependencies:
       - types-PyYAML==6.0.12.20250809
       - pytest==8.3.5
       - pytest-cov==6.2.0
+      - sentence-transformers

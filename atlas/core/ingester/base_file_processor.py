@@ -2,6 +2,7 @@ from abc import ABC
 from abc import abstractmethod
 from typing import List, Dict
 from pathlib import Path
+import json
 
 from atlas.utils.logger import LoggerConfig
 
@@ -11,7 +12,15 @@ LOGGER = LoggerConfig().logger
 class KnowledgeBaseProcessor(ABC):
     """
     Abstract base class for processors that handle knowledge base files.
+
+    Args:
+        vault_path (str): Path to the knowledge base.
+        output_path (str): Path to save the processed data.
     """
+
+    def __init__(self, vault_path: str, output_path: str) -> None:
+        self.vault_path = Path(vault_path)
+        self.output_path = Path(output_path)
 
     @abstractmethod
     def precheck(self) -> bool:
@@ -32,15 +41,22 @@ class KnowledgeBaseProcessor(ABC):
         """
         pass
 
-    @abstractmethod
     def save_processed_data(self, processed_data: List[Dict]) -> None:
         """
-        Save the processed data to a format suitable for later use.
+        Save the processed data to a JSON file atomically.
+        This ensures that the file is either fully written or not written at all.
 
         Args:
-            notes (list[dict]): The list of parsed metadata ie, processed data.
+            processed_data (list[dict]): The list of parsed notes metadata.
         """
-        pass
+        self.output_path.parent.mkdir(parents=True, exist_ok=True)
+        tmp_path = self.output_path.with_suffix(".tmp")
+
+        with tmp_path.open("w", encoding="utf-8") as f:
+            json.dump(processed_data, f, indent=2, ensure_ascii=False)
+
+        tmp_path.replace(self.output_path)
+        LOGGER.info(f"Processed data successfully to {str(self.output_path)}")
 
     def ingest(self) -> None:
         """
