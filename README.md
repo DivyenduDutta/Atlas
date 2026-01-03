@@ -82,7 +82,9 @@ So it follows the scaling law that even a small LLM when trained on enough quali
 
 ## Architecture
 
-High level ![architecture diagram](Resources/Atlas_Architecture.png)
+Architecture diagram:
+
+![architecture diagram](Resources/Atlas_Architecture.png)
 
 A sample of the `obsidian_index.json` is as below:
 
