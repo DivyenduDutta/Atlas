@@ -46,9 +46,13 @@ RAG is good because:
 
 [Chunker Module](atlas/core/chunker/README.md)
 
-#### Embedding and Indexing
+#### Embedding
 
-[Embedding Module](atlas/core/embedder/README.md)
+[Embedder Module](atlas/core/embedder/README.md)
+
+#### Indexing
+
+[Indexer Module](atlas/core/indexer/README.md)
 
 #### Obsidian
 
@@ -78,7 +82,9 @@ So it follows the scaling law that even a small LLM when trained on enough quali
 
 ## Architecture
 
-High level [architecture diagram](Resources/Atlas_Architecture.png)
+Architecture diagram:
+
+![architecture diagram](Resources/Atlas_Architecture.png)
 
 A sample of the `obsidian_index.json` is as below:
 
