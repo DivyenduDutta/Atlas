@@ -64,12 +64,14 @@ class BaseChunker(ABC):
         Args:
             chunked_data (List[Dict]): The chunked data to be saved.
         """
+        self.output_path.parent.mkdir(parents=True, exist_ok=True)
         tmp_path = self.output_path.with_suffix(".tmp")
 
         with tmp_path.open("w", encoding="utf-8") as f:
             json.dump(chunked_data, f, indent=2, ensure_ascii=False)
 
         tmp_path.replace(self.output_path)
+        LOGGER.info(f"Chunks saved successfully to {str(self.output_path)}")
 
     def chunk(self) -> None:
         """

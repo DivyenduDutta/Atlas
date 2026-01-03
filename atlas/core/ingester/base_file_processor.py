@@ -49,12 +49,14 @@ class KnowledgeBaseProcessor(ABC):
         Args:
             processed_data (list[dict]): The list of parsed notes metadata.
         """
+        self.output_path.parent.mkdir(parents=True, exist_ok=True)
         tmp_path = self.output_path.with_suffix(".tmp")
 
         with tmp_path.open("w", encoding="utf-8") as f:
             json.dump(processed_data, f, indent=2, ensure_ascii=False)
 
         tmp_path.replace(self.output_path)
+        LOGGER.info(f"Processed data successfully to {str(self.output_path)}")
 
     def ingest(self) -> None:
         """

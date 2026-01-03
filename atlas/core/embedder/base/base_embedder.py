@@ -30,7 +30,13 @@ class BaseEmbedder(ABC):
         self.load_encoder()
 
     def read_chunk_data(self) -> List[Dict] | None:
-        """Load chunk data to be embedded."""
+        """
+        Load chunk data to be embedded.
+
+        Args:
+            List[Dict]: List of chunk dictionaries to be embedded.
+        """
+
         LOGGER.info(f"Loading chunk data from {self.chunk_data_path}")
         try:
             with self.chunk_data_path.open("r", encoding="utf-8") as f:
@@ -65,17 +71,25 @@ class BaseEmbedder(ABC):
 
         Args:
             chunks (List[Dict]): List of chunk dictionaries to be embedded.
+
+        Returns:
+            List[Dict]: List of chunk dictionaries with added embeddings.
         """
         pass
 
     def save_embedded_chunks(self, embedded_chunks: List[Dict]) -> None:
         """
         Save the embedded chunks to a suitable format for later use.
+
+        Args:
+            embedded_chunks (List[Dict]): List of chunk dictionaries with added embeddings.
         """
+
+        self.output_path.parent.mkdir(parents=True, exist_ok=True)
         tmp_path = self.output_path.with_suffix(".tmp")
 
         with tmp_path.open("w", encoding="utf-8") as f:
             json.dump(embedded_chunks, f, indent=2, ensure_ascii=False)
 
         tmp_path.replace(self.output_path)
-        LOGGER.info("Embedded chunks saved successfully.")
+        LOGGER.info(f"Embedded chunks saved successfully to {str(self.output_path)}")
