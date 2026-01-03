@@ -48,11 +48,11 @@ RAG is good because:
 
 #### Embedding
 
-[Embedding Module](atlas/core/embedder/README.md)
+[Embedder Module](atlas/core/embedder/README.md)
 
 #### Indexing
 
-[Indexing Module](atlas/core/indexer/README.md)
+[Indexer Module](atlas/core/indexer/README.md)
 
 #### Obsidian
 
