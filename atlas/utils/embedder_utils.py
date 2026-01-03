@@ -53,4 +53,4 @@ def generate_embedding(text: str, encoder_config_path: str) -> np.ndarray:
     embedding_config = load_encoder_config(_encoder_config_path)
     encoder = SentenceTransformerEncoder(embedding_config)
     embedding = encoder.encode(texts)
-    return embedding
+    return embedding[0]

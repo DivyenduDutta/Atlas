@@ -84,6 +84,38 @@ def dummy_chunk_data_path(tmp_path: Path) -> Path:
 
 
 @pytest.fixture
+def dummy_embedded_chunk_data_path(tmp_path: Path) -> Path:
+    """
+    Create a dummy embedded chunk data file for testing.
+
+    Args:
+        tmp_path (Path): Temporary directory provided by pytest.
+
+    Returns:
+        Path: The path to the created dummy embedded chunk data file.
+    """
+    dummy_chunk_data = [
+        {
+            "chunk_id": "test Note.md::test_heading::chunk_0",
+            "note_id": "test Note.md",
+            "title": "Test Note",
+            "relative_path": "test_note.md",
+            "heading": "Test Heading",
+            "chunk_index": 0,
+            "text": "This is a test chunk.",
+            "word_count": 5,
+            "tags": [],
+            "frontmatter": {},
+            "embedding": [1.2, 2.4, 4.9],
+        }
+    ]
+    embedded_chunk_data_path = tmp_path / "embedded_chunks.json"
+    with embedded_chunk_data_path.open("w", encoding="utf-8") as f:
+        json.dump(dummy_chunk_data, f, indent=2, ensure_ascii=False)
+    return embedded_chunk_data_path
+
+
+@pytest.fixture
 def dummy_encoder_config(tmp_path: Path) -> EncoderConfig:
     """
     Create dummy encoder configuration data for testing.
