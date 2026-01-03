@@ -39,9 +39,7 @@ RAG or Retrieval Augmented Generation is a technique used to retrieve external k
 
 RAG is good because:
 - Reduces hallucinations
-
 - Enables citations
-
 - Keeps answers faithful to source material
 
 #### Chunking
@@ -124,30 +122,28 @@ Before committing changes run `pre-commit run --all-files` or `pre-commit run --
 
 Run `python .\atlas\core\ingest\obsidian_vault_processor.py`
 
-This will generate the `obsidian_index.json` in `/Resources` folder. This json file contains the processed data after ingesting and processing the notes from the obsidian vault.
-
-See architecture section for structure of this json.
+In the above script, modify
+- `obsidian_vault_path` to point to your obsidian vault's root folder ie, the folder containing `.obsidian` folder
+- `obsidian_index_path` to specify where the `obsidian_index.json` will be saved. This json file contains the processed data after ingesting and processing the notes from the obsidian vault. See [architecture](#architecture) section for the structure of this json.
 
 ### Structural Chunker Module
 
 Run `python .\atlas\core\chunker\structural_chunker.py`
 
-This will generate the `chunked_data.json` in `/Resources` folder. This json file contains the chunks generated from the notes processed by the "Obsidian Vault Processor" module.
+In the above script, modify
+- `processed_data_path` to specify where the `obsidian_index.json` is present
+- `output_path` to specify where the `chunked_data.json` will be saved. This json file contains the chunks generated from the notes processed by the "Obsidian Vault Processor" module. See [`README` in `atlas/core/chunker`](atlas/core/chunker/README.md) for structure of this json.
+- `max_words` to set what determines the size of chunks created. This should be changed primarily based on the token limit of the encoding model and context size of the LLM used in the later modules.
 
-See `README` in `atlas/core/chunker` for structure of this json.
-
-There is an option to set the `max_words` for `StructuralChunker`. This determines the size of chunks created and should be changed primarily based on the token limit of the encoding model and context size of the LLM used in later modules.
-
-### Embedding
+### Embedder Module
 
 Run `python .\atlas\core\embedder\sentence_transformer\impl_embedder.py`
 
-This will generate the `embedded_chunks.json` in `/Resources` folder. This json is exactly similar to
-`chunked_data.json` with the added `embedding` for each chunk.
-
-See `README` in `atlas/core/embedder` for structure of this json.
-
-See `altas/core/configs/sentence_transformer_config.yaml` for changing the encoder model used and its configuration. The following can be changed:
+In the above script modify,
+- `chunk_data_path` to specify where the `chunked_data.json`is present
+- `output_path` to specify where `embedded_chunks.json` will be saved. This json is exactly similar to
+`chunked_data.json` with the added `embedding` for each chunk. See [`README` in `atlas/core/embedder`](atlas/core/embedder/README.md) for structure of this json.
+- `encoder_config_path` to specify your own configuration settings for the encoder model used to generate the chunk embeddings. By default, see [`altas/core/configs/sentence_transformer_config.yaml`](atlas/core/configs/sentence_transformer_config.yaml) for changing the encoder model used and its configuration. The following can be changed:
 
 ```yaml
 model_name: sentence-transformers/all-MiniLM-L6-v2
@@ -156,6 +152,26 @@ normalize_embeddings: true
 device: cuda
 ```
 
+### Indexer Module
+
+Run `python .\atlas\core\indexer\run_indexer.py`
+
+In the above script modify,
+- `results_save_path` to specify where the index and metadata file will be saved
+- `embedded_chunks_json_file` to specify where the `embedded_chunks.json` is present
+
 ### Tests
 
-Run unit tests via VS Code or `python -m unittest` to run all unit tests
+Run unit tests via VS Code
+
+or
+
+Run only unit tests - `pytest -m unittest`
+
+Run only integration tests - `pytest -m integration`
+
+Run only tests that can be run on CI - `pytest -m runonci`
+
+Run ALL tests - `pytest`
+
+Note : Anytime a pytest marker is added to a pytest, ensure it is registered in `pytest.ini` otherwise pytest will complain
