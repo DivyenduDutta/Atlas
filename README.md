@@ -46,9 +46,13 @@ RAG is good because:
 
 [Chunker Module](atlas/core/chunker/README.md)
 
-#### Embedding and Indexing
+#### Embedding
 
 [Embedding Module](atlas/core/embedder/README.md)
+
+#### Indexing
+
+[Indexing Module](atlas/core/indexer/README.md)
 
 #### Obsidian
 
