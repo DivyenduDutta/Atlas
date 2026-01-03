@@ -5,6 +5,8 @@ channels:
 dependencies:
   # Python version
   - python=3.11
+  - faiss-gpu
+  - numpy
   # Hugging Face libraries and pytorch
   - pip
   - pip:
