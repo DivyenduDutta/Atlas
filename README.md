@@ -78,7 +78,7 @@ So it follows the scaling law that even a small LLM when trained on enough quali
 
 ## Architecture
 
-Initial high level [architecture diagram](https://github.com/DivyenduDutta/Atlas/tree/master/Resources/Atlas_Architecture.png)
+High level [architecture diagram](Resources/Atlas_Architecture.png)
 
 A sample of the `obsidian_index.json` is as below:
 
