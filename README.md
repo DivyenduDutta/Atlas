@@ -171,7 +171,7 @@ In the above script modify,
 Run `python .\atlas\core\retriever\context.py`
 
 In the above script modify,
-- `results_load_path` to specify where the index and metadata file will are present and will be loaded from
+- `results_load_path` to specify where the index and metadata file are present and will be loaded from
 - `user_query` to specify the user prompt/query
 - `k` to specify the number of most relevant chunks as the context for the user query
 
