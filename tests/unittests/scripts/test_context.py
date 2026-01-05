@@ -5,7 +5,7 @@ from pathlib import Path
 import faiss
 
 from atlas.core.indexer.faiss_vector_store import FaissVectorStore
-from atlas.core.retriever.context import retrieve_context
+from atlas.core.rag.retriever import retrieve_context
 from atlas.utils.embedder_utils import load_embedded_chunks
 
 
