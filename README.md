@@ -54,6 +54,10 @@ RAG is good because:
 
 [Indexer Module](atlas/core/indexer/README.md)
 
+#### Retrieval Augmented Generation (RAG)
+
+[RAG](atlas/core/rag/README.md)
+
 #### Obsidian
 
 [Obsidian](https://obsidian.md/) is a light weight application used to take notes and create knowledge bases. It saves all the notes as markdown making it easy to load, process and render a huge amount of notes.
@@ -166,14 +170,18 @@ In the above script modify,
 - `results_save_path` to specify where the index and metadata file will be saved
 - `embedded_chunks_json_file` to specify where the `embedded_chunks.json` is present
 
-### Context Retriever Module
+### RAG Based Prompting and Answering
 
-Run `python .\atlas\core\retriever\context.py`
+#### Retrieval
+
+Run `python .\atlas\core\rag\retriever.py`
 
 In the above script modify,
 - `results_load_path` to specify where the index and metadata file are present and will be loaded from
 - `user_query` to specify the user prompt/query
 - `k` to specify the number of most relevant chunks as the context for the user query
+
+#### Prompting and Answering
 
 ### Tests
 
