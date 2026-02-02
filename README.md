@@ -12,6 +12,7 @@
 
 ![CI](https://github.com/DivyenduDutta/Atlas/actions/workflows/ci.yaml/badge.svg)
 [![codecov](https://codecov.io/gh/DivyenduDutta/Atlas/branch/master/graph/badge.svg)](https://codecov.io/gh/DivyenduDutta/Atlas)
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/DivyenduDutta/Atlas)
 
   <p>
     <a href="#introduction">Introduction</a> •
@@ -26,7 +27,6 @@
 
 #### Knowledge Copilot
 
-As a famous LLM once said.
 > A knowledge copilot is an AI assistant that understands your knowledge base and helps you query, synthesize, and navigate it—while staying faithful to the original sources.
 
 A good knowledge copilot can search semantically, answer with context, connect ideas, cite sources and assist, not replace thinking. Its basically a "copilot" for our brains.
